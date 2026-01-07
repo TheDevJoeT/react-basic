@@ -1,11 +1,13 @@
 
 import { useState } from 'react';
 import './App.css'; // this css only implies app.js which is a component 
+import Navbar from './components/Navbar/index';
+import PostList from './components/PostList/index';
 
 
 function App() {
  
-  let [name,setName] = useState("Thant Zin Aung") // [getter,setterFun]
+  
   let [posts, setPosts] = useState([
     {
       id : 1,
@@ -18,36 +20,20 @@ function App() {
     {
       id : 3,
       title : "Third Post"
-    }
+    },
+    {
+      id : 4,
+      title : "Fourth Post"
+    },
   ])
  
-  const changeName = () => {
-    setName('Joe')
-  }
-
-  const deletePost = (id) => {
-    setPosts((prevState)=> prevState.filter(post => post.id !== id))
-  }
+ 
   return (
+    <>
+      <Navbar/>
+      <PostList posts = {posts}/>
+    </>
   
-    <div className='app'>
-      <h1>Hello {name}!</h1>
-      <button onClick={changeName}>Change Name</button> 
-
-      <h1>Posts</h1>
-      <ul>
-       {!!posts.length &&
-        posts.map((post)=> (
-          <li key={post.id}>
-            {post.title}
-            <button onClick={()=>deletePost(post.id)}>Delete</button>
-          </li>
-        ))
-       }
-       {!posts.length && <p>No post available</p>}
-      </ul>
-    </div>
-
   );
 }
 
