@@ -49,7 +49,7 @@ export default App;
 // export default function App() {
 
 //   let [count,setCount] = useState(0)
-//   let increament = () => {
+//   let increment = () => {
 //     setCount((prevState)=> prevState +1)
 //     setCount((prevState)=> prevState +1)
 //     setCount((prevState)=> prevState +1)
@@ -62,7 +62,7 @@ export default App;
 //     <div>
 //       <h1>Counter</h1>
 //       <h3>Count : {count}</h3>
-//       <button onClick={increament}>Increase</button>
+//       <button onClick={increment}>Increase</button>
 //     </div>
 //   )
 // }
