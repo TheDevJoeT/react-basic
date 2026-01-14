@@ -1,13 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./index.css";
 
 export default function PostForm({addPost}) {
-  // let [title, setTitle] = useState("");
-  let title = useRef();
-  
+  let [title, setTitle] = useState("");
+  let [status, setStatus] = useState('upcoming')
+
   let resetForm = () => {
-    // setTitle("");
-    title.current.value = ''
+    setTitle("");
   };
 
   let upload_post = (e) => {
@@ -16,7 +15,8 @@ export default function PostForm({addPost}) {
 
     let post = {
         id : Math.floor(Math.random() * 1000),
-        title : title.current.value
+        title : title,
+        status : status
     }
 
     resetForm();
@@ -29,7 +29,15 @@ export default function PostForm({addPost}) {
         <h1>Create Post</h1>
         <div className="form-control">
           <label>Title</label>
-          <input type="text"  ref={title}></input>
+          <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}></input>
+        </div>
+        <div className="form-control">
+          <label>Status</label>
+          <select name="" id="" value={status} onChange={(e) => setStatus(e.target.value)}>
+            <option value="dropped">Dropped</option>
+            <option value="ongoing">Ongoing</option>
+            <option value="upcoming">Upcoming</option>
+          </select>
         </div>
         <div className="form-control">
           <button type="submit">Post Now</button>

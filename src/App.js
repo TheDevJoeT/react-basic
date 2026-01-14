@@ -13,14 +13,18 @@ function App() {
     {
       id: 1,
       title: "First Post",
+      status : 'upcoming'
     },
     {
       id: 2,
       title: "Second Post",
+      status : 'dropped'
     },
     {
       id: 3,
       title: "Third Post",
+      status : 'ongoing'
+
     },
     
   ]);
